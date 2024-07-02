@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filterable images</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <ul>
+            <li class="list active" data-filter="all">All</li>
+            <li class="list" data-filter="mobile">Mobile</li>
+            <li class="list" data-filter="camera">Camera</li>
+            <li class="list" data-filter="watch">Watch</li>
+            <li class="list" data-filter="shoe">Shoe</li>
+            <li class="list" data-filter="headphone">Headphone</li>
+        </ul>
+        <div class="product">
+            <div class="itembox mobile"><img src="./image/mobile1.jpg" alt=""></div>
+            <div class="itembox camera"><img src="./image/camera1.jpg" alt=""></div>
+            <div class="itembox watch"><img src="./image/watch1.jpg" alt=""></div>
+            <div class="itembox shoe"><img src="./image/shoe1.jpg" alt=""></div>
+            <div class="itembox headphone"><img src="./image/headphone2.jpg" alt=""></div>
+            <div class="itembox mobile"><img src="./image/mobile2.jpg" alt=""></div>
+            <div class="itembox camera"><img src="./image/camera2.jpg" alt=""></div>
+            <div class="itembox watch"><img src="./image/watch2.jpg" alt=""></div>
+            <div class="itembox shoe"><img src="./image/shoe2.jpg" alt=""></div>
+            <div class="itembox headphone"><img src="./image/headphone2.jpg" alt=""></div>
+            <div class="itembox mobile"><img src="./image/mobile3.jpg" alt=""></div>
+            <div class="itembox camera"><img src="./image/camera3.jpg" alt=""></div>
+            <div class="itembox watch"><img src="./image/watch3.jpg" alt=""></div>
+            <div class="itembox shoe"><img src="./image/shoe3.jpg" alt=""></div>
+            <div class="itembox headphone"><img src="./image/headphone3.jpg" alt=""></div>
+            <div class="itembox mobile"><img src="./image/mobile4.jpg" alt=""></div>
+            <div class="itembox watch"><img src="./image/watch4.jpg" alt=""></div>
+            <div class="itembox shoe"><img src="./image/shoe4.jpg" alt=""></div>
+            <div class="itembox headphone"><img src="./image/headphone4.jpg" alt=""></div>
+            <div class="itembox mobile"><img src="./image/mobile5.jpg" alt=""></div>
+
+        </div>
+    </section>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.7.0.js"
+  integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+  crossorigin="anonymous">
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.list').click(function(){
+            const value = $(this).attr('data-filter');
+            if(value == 'all'){
+                $('.itembox').show('1000')
+            }else{
+                $('.itembox').not('.'+value).hide('1000')
+                $('.itembox').filter('.'+value).show('1000')
+            }
+        })
+        $('.list').click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+        })
+    });
+</script>
+</html>
